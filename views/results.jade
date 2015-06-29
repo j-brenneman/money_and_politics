@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1 Results
+  div
+    each val in info
+      div  
+        p.name #{val.name} 
+        p.percent #{val.percent} 

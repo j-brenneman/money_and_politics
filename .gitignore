@@ -1,0 +1,4 @@
+node_modules
+.env
+fec_elections_data.csv
+elections
