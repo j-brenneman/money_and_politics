@@ -21,6 +21,13 @@ a {
   margin-right: 10px;
 }
 
+.money {
+  display: inline-block;
+  text-align: center;
+  color: green;
+  font-size: 16px;
+}
+
 .tryAgain {
   margin-bottom: 10px;
   font-size: 16px;
@@ -28,6 +35,4 @@ a {
   padding: 5px;
   display: inline-flex;
   vertical-align: top;
-
-
 }

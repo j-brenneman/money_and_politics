@@ -39,8 +39,9 @@ router.post('/input', function (req, res, next) {
           var percent = datas[i].votePercent;
           sunlightLabs(datas[i].name, year, i, percent, function (reciepts, name, vote) {
             var info = {};
+            var contributions = '$' +' '+ reciepts.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
             info.candidate = name;
-            info.reciepts = reciepts;
+            info.reciepts = contributions;
             info.percent = vote;
             result.push(info);
             if(result.length === datas.length)
