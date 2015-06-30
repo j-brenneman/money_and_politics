@@ -32,26 +32,20 @@ router.post('/input', function (req, res, next) {
     else
       var district = data[0].district;
     var yrDB = db.get(yearIN);
-    // console.log(district)
-    yrDB.find({state: state, district: district}, function (err, data) {
-      var candidates = [];
-      for(var i = 0; i < data.length; i++) {
-        var info = {};
-        info.name = data[i].name;
-        info.percent = data[i].votePercent;
-        candidates.push(info);
-        // console.log(info);
+    yrDB.find({state: state, district: district}, function (err, datas) {
+      var result = [];
+      for(var i = 0; i < datas.length; i++) {
+        var percent = datas[i].votePercent;
+        sunlightLabs(datas[i].name, year, i, percent, function (reciepts, name, vote) {
+          var info = {};
+          info.candidate = name;
+          info.reciepts = reciepts;
+          info.percent = vote;
+          result.push(info);
+          if(result.length === datas.length)
+            res.render('results', {info: result, state: state, district: district, year: year});
+        });
       }
-      var totals = [];
-
-      sunlightLabs(candidates, year, function (input) {
-        totals.push(input);
-        if(totals.length === data.length)
-          res.render('results', {info: candidates, state: state, district: district, year: year, totals: totals});
-      });
-
-      // if(totals.length === data.length)
-
     });
   });
 });
