@@ -33,18 +33,26 @@ router.post('/input', function (req, res, next) {
       var district = data[0].district;
     var yrDB = db.get(yearIN);
     yrDB.find({state: state, district: district}, function (err, datas) {
-      var result = [];
-      for(var i = 0; i < datas.length; i++) {
-        var percent = datas[i].votePercent;
-        sunlightLabs(datas[i].name, year, i, percent, function (reciepts, name, vote) {
-          var info = {};
-          info.candidate = name;
-          info.reciepts = reciepts;
-          info.percent = vote;
-          result.push(info);
-          if(result.length === datas.length)
-            res.render('results', {info: result, state: state, district: district, year: year});
-        });
+      if(datas[0]) {
+        var result = [];
+        for(var i = 0; i < datas.length; i++) {
+          var percent = datas[i].votePercent;
+          sunlightLabs(datas[i].name, year, i, percent, function (reciepts, name, vote) {
+            var info = {};
+            info.candidate = name;
+            info.reciepts = reciepts;
+            info.percent = vote;
+            result.push(info);
+            if(result.length === datas.length)
+              res.render('results', {info: result, state: state, district: district, year: year});
+
+          });
+        }
+      }
+      else {
+        var message = 'Sorry but' +' '+ zipIN +' '+ 'currently represents' +
+                      ' '+ state +' '+ district +','+' '+ 'which did not exist in' +' '+ year;
+        res.render('input', {response: message});
       }
     });
   });

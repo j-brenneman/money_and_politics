@@ -2,6 +2,7 @@ extends layout
 
 block content
   h1 Enter a Zipcode and Election Year
+  p.tryAgain #{response}
   fieldset
     form(action='/input' method='post')
       p
