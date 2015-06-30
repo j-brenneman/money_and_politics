@@ -1,31 +1,85 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  font: 14px Arial, sans-serif;
+  background-color: rgba(228, 253, 225, .4);
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 a {
   color: #00B7FF;
 }
 
+.head {
+  width: 100%;
+  background-color: rgba(17, 75, 95, 1);
+}
+.pic {
+  width: 10%;
+  height: 5%;
+  margin: 5px;
+}
+
+.subHead {
+  font-size: 22px;
+  color: rgba(17, 75, 95, 1);
+  margin: 0 5px;
+}
+
+.result {
+  font-size: 18px;
+  color: rgb(234, 109, 103);
+}
 .name {
-  display: inline-block;
-  color: red;
-  font-size: 20px;
-  margin-right: 10px;
+  font-size: 25px;
+  color: rgba(17, 75, 95, 1);
 }
 
 .percent {
-  display: inline-block;
-  color: blue;
-  font-size: 20px;
-  margin-right: 10px;
+  font-size: 22px;
+  color: rgba(17, 75, 95, 1);
 }
 
 .money {
+  font-size: 22px;
+  color: rgb(14, 167, 119);
+}
+
+.headLogo{
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 2%;
+  color: rgb(228, 253, 225);
+}
+
+.header {
+  margin: 2% auto;
+  text-align: center;
+  /*color: rgb(244, 91, 105);*/
+  color: rgb(234, 109, 103);
+}
+
+.thead {
+  font-size: 15px;
+  color: rgb(234, 109, 103);
+}
+
+.content {
+  margin: 0 auto;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+}
+
+.info {
   display: inline-block;
   text-align: center;
-  color: green;
-  font-size: 16px;
+  margin: 2%;
 }
 
 .tryAgain {
@@ -35,4 +89,27 @@ a {
   padding: 5px;
   display: inline-flex;
   vertical-align: top;
+}
+
+.photo {
+  display: block;
+  border: 2px solid black;
+  margin: 15px auto;
+}
+
+table {
+  border: 2px solid rgba(17, 75, 95, 1);
+  padding: 15px;
+}
+
+.input {
+  background-color: rgba(17, 75, 95, .25);
+  margin: 0 auto;
+  display: inline-block;
+  width: 35%;
+}
+
+.center {
+  margin: 0 auto;
+  text-align: center;
 }

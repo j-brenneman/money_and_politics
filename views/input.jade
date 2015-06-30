@@ -1,23 +1,26 @@
 extends layout
 
 block content
-  h1 Enter a Zipcode and Election Year
+  h1.header Enter a Zipcode and Election Year
   p.tryAgain #{response}
-  fieldset
-    form(action='/input' method='post')
-      p
-       label Zipcode 
-        input(type='text' name='zip')
-      p
-        label Election Year 
-          select(name='years')
-            option(name='year' value='2012') 2012
-            option(name='year' value='2010') 2010
-            option(name='year' value='2008') 2008
-            option(name='year' value='2006') 2006
-            option(name='year' value='2004') 2004 
-            option(name='year' value='2002') 2002
-      button(type='submit') Submit
-            
+  div.center
+    fieldset.input
+      form(class='center' action='/input' method='post')
+        p
+         label.name Zipcode
+          br
+          input(class='center' type='text' name='zip')
+        p
+          label.name Election Year
+            br
+            select(class='center' name='years')
+              option(name='year' value='2012') 2012
+              option(name='year' value='2010') 2010
+              option(name='year' value='2008') 2008
+              option(name='year' value='2006') 2006
+              option(name='year' value='2004') 2004 
+              option(name='year' value='2002') 2002
+        button(type='submit') Submit
+              
           
   

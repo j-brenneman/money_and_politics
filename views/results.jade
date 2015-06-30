@@ -1,11 +1,34 @@
 extends layout
 
 block content
-  h1 #{year} Results for #{state} #{district}
-  div
+  h1.header Results 
+    div
+      span.subHead Year:  
+        span.result #{year}  
+      span.subHead State:  
+        span.result #{state}  
+      span.subHead District:  
+        span.result #{district} 
+  div.content  
     each val, i in info
-      div  
-        p.name #{val.candidate} 
-        p.percent #{val.percent} 
-        p.totals Net Campaign Contributions:
-        p.money #{val.reciepts}
+      table.info
+        tr
+          th.name #{val.candidate}
+        tr
+          if val.photo == 'Picture Unavailable'
+            td
+              img.photo(src='./images/no_image.png' height=130 width=105)
+          else  
+            td
+              img.photo(src= val.photo height=130 width=105 alt='Image Unavailable')
+        tr
+          th.thead Vote Percentage
+        tr
+          td.percent #{val.percent}
+        tr
+          th.thead Net Campaign Contributions:
+        tr
+          td.money #{val.reciepts}
+      
+        
+        

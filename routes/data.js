@@ -37,17 +37,24 @@ router.post('/input', function (req, res, next) {
         var result = [];
         for(var i = 0; i < datas.length; i++) {
           var percent = datas[i].votePercent;
-          sunlightLabs(datas[i].name, year, i, percent, function (reciepts, name, vote) {
+          sunlightLabs(datas[i].name, year, i, percent, function (reciepts, name, vote, photo) {
             var info = {};
             if(reciepts === 'Information not Available')
               var contributions = reciepts;
             else
               var contributions = '$' +' '+ reciepts.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+            if(photo === 'not available' || photo === undefined || photo === '' )
+              var pic = 'Picture Unavailable';
+            else
+              var pic = photo;
+            
 
             info.candidate = name;
             info.reciepts = contributions;
             info.percent = vote;
+            info.photo = pic;
             result.push(info);
+            console.log(result);
             if(result.length === datas.length)
               res.render('results', {info: result, state: state, district: district, year: year});
 
