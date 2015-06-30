@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var unirest = require('unirest');
+var sunlightLabs = require('./../lib/javascripts/sunlightLabs');
 var db = require('monk')('localhost/election_results');
 var results2012 = db.get('results2012');
 var results2010 = db.get('results2010');
@@ -23,6 +24,7 @@ router.get('/results', function (req, res, next) {
 router.post('/input', function (req, res, next) {
   var zipIN = req.body.zip;
   var yearIN = 'results' + req.body.years;
+  var year = req.body.years;
   districts.find({zip: parseInt(zipIN)}, function (err, data) {
     var state = data[0].state;
     if(String(data[0].district).length === 1)
@@ -40,8 +42,15 @@ router.post('/input', function (req, res, next) {
         candidates.push(info);
         // console.log(info);
       }
-      console.log(candidates);
-      res.render('results', {info: candidates});
+      var totals = [];
+
+      sunlightLabs(candidates, year, function (input) {
+        totals.push(input);
+        if(totals.length === data.length)
+          res.render('results', {info: candidates, state: state, district: district, year: year, totals: totals});
+      });
+
+      // if(totals.length === data.length)
 
     });
   });

@@ -1,9 +1,10 @@
 extends layout
 
 block content
-  h1 Results
+  h1 #{year} Results for #{state} #{district}
   div
-    each val in info
+    each val, i in info
       div  
         p.name #{val.name} 
         p.percent #{val.percent} 
+        p.totals #{totals[i]}
