@@ -50,6 +50,25 @@ a {
   color: rgb(14, 167, 119);
 }
 
+.bio {
+  display: none;
+  text-align: center;
+  font-size: 14px;
+  color: rgb(17, 75, 95);
+  width: 20%;
+}
+
+.showBio {
+  text-align: center;
+  margin: 0 auto;
+  color: rgb(228, 253, 225);
+  background-color: rgb(17, 75, 95);
+}
+.showBio:hover {
+  background-color: rgb(228, 253, 225);
+  color: rgb(17, 75, 95);
+}
+
 .headLogo{
   display: inline-block;
   vertical-align: top;
@@ -76,12 +95,6 @@ a {
   width: 100%;
 }
 
-.info {
-  display: inline-block;
-  text-align: center;
-  margin: 2%;
-}
-
 .tryAgain {
   margin-bottom: 10px;
   font-size: 16px;
@@ -97,10 +110,14 @@ a {
   margin: 15px auto;
 }
 
-table {
+.info {
   border: 2px solid rgba(17, 75, 95, 1);
   padding: 15px;
-  background-color: rgba(17, 75, 95, .01);
+  background-color: rgba(17, 75, 95, .05);
+  box-shadow: 10px 10px 5px #888888;
+  display: inline-block;
+  text-align: center;
+  margin: 2%;
 }
 
 .input {
