@@ -100,6 +100,7 @@ a {
 table {
   border: 2px solid rgba(17, 75, 95, 1);
   padding: 15px;
+  background-color: rgba(17, 75, 95, .01);
 }
 
 .input {
