@@ -11,30 +11,20 @@ block content
         span.result #{district} 
   div.content  
     each val, i in info
-      table.info
-        tr
-          th.name #{val.candidate}
-        tr
+      section.info
+        div.name #{val.candidate}
+        div
           if val.photo == 'Picture Unavailable'
-            td
-              img.photo(src='./images/no_image.png' height=130 width=105)
+            img.photo(src='./images/no_image.png' height=130 width=105)
           else  
-            td
-              img.photo(src= val.photo height=130 width=105 alt='Image Unavailable')
-        tr
-          td
-            button.showBio(type='submit' id= val.candidate) About
-        tr
-          td
-            .bio #{val.bio}
-        tr
-          th.thead Vote Percentage
-        tr
-          td.percent #{val.percent}
-        tr
-          th.thead Net Campaign Contributions:
-        tr
-          td.money #{val.reciepts}
+            img.photo(src= val.photo height=130 width=105 alt='Image Unavailable')
+        div
+          button.showBio(type='submit' id= val.candidate) About
+        div.bio #{val.bio}
+        div.thead Vote Percentage
+        div.percent #{val.percent}
+        div.thead Net Campaign Contributions:
+        div.money #{val.reciepts}
   
   script(src='../javascripts/dom.js')      
         
