@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1.header Enter a Zipcode and Election Year
-  p.tryAgain #{response}
+  p.tryAgain #{response} #{error}
   div.center
     fieldset.input
       form(class='center' action='/input' method='post')
