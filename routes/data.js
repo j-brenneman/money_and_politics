@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var unirest = require('unirest');
 var sunlightLabs = require('./../lib/javascripts/sunlightLabs');
-var db = require('monk')('localhost/election_results');
+var db = require('monk')(process.env.MONGOLAB_URI); //MONGO_URI=mongodb://heroku_7cbsx8f1:qokgrpo5t7uc6nnsg5qotk6vln@ds045521.mongolab.com:45521/heroku_7cbsx8f1
 var results2012 = db.get('results2012');
 var results2010 = db.get('results2010');
 var results2008 = db.get('results2008');
