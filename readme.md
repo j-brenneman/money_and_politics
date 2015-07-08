@@ -1,4 +1,4 @@
-#Politcal Tracker
+#Political Tracker
 
 This app allows a user to input a zip-code and election cycle and then displays candidates, vote count, and net campaign contributions for the correlating Congressional district and election year.
 
