@@ -52,7 +52,7 @@ for (var n = 0; n < zips.length; n++) {
     });
   }
 }
-
+// push every piece of info to array and with most deeply nested for loop, check the array length with number of items given to array before execution
 
 
 module.exports = router;
